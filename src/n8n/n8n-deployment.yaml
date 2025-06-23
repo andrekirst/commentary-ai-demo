@@ -223,11 +223,6 @@ spec:
                 configMapKeyRef:
                   name: n8n-config
                   key: N8N_SECURE_COOKIE
-            - name: WEBHOOK_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: n8n-config
-                  key: WEBHOOK_URL
             - name: N8N_ENCRYPTION_KEY
               valueFrom:
                 secretKeyRef:
