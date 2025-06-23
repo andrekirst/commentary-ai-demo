@@ -291,8 +291,13 @@ metadata:
   namespace: n8n
   labels:
     app: n8n
+  annotations:
+    # MetalLB Konfiguration
+    metallb.universe.tf/allow-shared-ip: "n8n"
+    # Optional: Spezifische IP-Adresse zuweisen
+    # metallb.universe.tf/loadBalancerIPs: "192.168.1.100"
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 80
       targetPort: 5678
@@ -300,3 +305,5 @@ spec:
       name: http
   selector:
     app: n8n
+  # Optional: Externe Traffic Policy für bessere Performance
+  externalTrafficPolicy: Local
